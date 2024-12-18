@@ -8,6 +8,7 @@ import Register from './containers/auth/register'
 import Dashboard from './containers/dashboard'
 
 import { Navigate } from 'react-router-dom'
+import PageNotFound from './components/404-not-found'
 
 export const PrivateRoute = ({ children }) => {
   const isAuthenticated = !!localStorage.getItem('accessToken');
@@ -32,6 +33,7 @@ const AppRoutes = () => {
               </PrivateRoute>
             }
           />
+          <Route path="*" element={<PageNotFound />} />
 
         </Routes>
       </Router>

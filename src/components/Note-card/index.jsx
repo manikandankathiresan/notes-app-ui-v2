@@ -9,7 +9,7 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
         <div className='border rounded p-8 h-[14rem] bg-white hover:shadow-xl transition-all ease-in-out'>
             <div className='flex items-center justify-between'>
                 <div>
-                    <h6 className='text-md font-midum'>{title}</h6>
+                    <h6 className='text-md font-medium'>{title}</h6>
                     <span className='text-sm text-slate-500'>{date}</span>
                 </div>
 
@@ -20,9 +20,12 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
 
             <div className='flex items-center justify-between mt-[1.75rem]'>
                 <div className='text-xs text-slate-500'>
-                    <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                        {tags}
-                    </span>
+                    {/* Map over the tags array and display them separately */}
+                    {tags && tags.length > 0 && tags.map((tag, index) => (
+                        <span key={index} className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mr-2">
+                            {tag}
+                        </span>
+                    ))}
                 </div>
 
                 <div className='flex items-center gap-2'>
